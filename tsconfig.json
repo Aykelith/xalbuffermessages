@@ -1,0 +1,21 @@
+{
+    "include": ["src", "tests"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "target": "ES2015",
+        "allowJs": false,
+        "outDir": "./dist",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "declaration": true,
+        "sourceMap": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "paths": {},
+        "allowSyntheticDefaultImports": true,
+        "composite": true
+    },
+    "references": []
+}
