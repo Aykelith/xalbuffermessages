@@ -1,11 +1,15 @@
 {
     "name": "@softprovider/xaltcpmessages",
     "version": "1.0.0",
-    "main": "dist/src/index.js",
-    "types": "dist/src/index.d.ts",
-    "files": ["dist/src/**/*"],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": ["dist/**/*"],
     "scripts": {
-        "build": "tsc -p ./tsconfig.build.json"
+        "build": "tsc -p ./tsconfig.build.json",
+        "prepare": "npm run-script build"
+    },
+    "publishConfig": {
+        "@softprovider:registry": "https://gitlab.com/api/v4/projects/31476465/packages/npm/"
     },
     "author": "",
     "license": "ISC",
