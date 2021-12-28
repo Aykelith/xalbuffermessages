@@ -22,7 +22,7 @@ export function createMessageWriter(variableTypes: VariableType[]): MessageWrite
 
     if (postBufferSizeCalculators.length == 0) postBufferSizeCalculators = null;
 
-    return function (offset: number, ...args: any[]): Buffer {
+    return function (offset: number, offsetBeforeArgIndex: number, ...args: any[]): Buffer {
         let buffer: Buffer;
         let additionalSize: number = offset;
         if (postBufferSizeCalculators) {
@@ -33,9 +33,12 @@ export function createMessageWriter(variableTypes: VariableType[]): MessageWrite
 
         buffer = Buffer.allocUnsafe(bufferSize + additionalSize);
 
-        let nextByte: number = offset;
+        let nextByte: number = offsetBeforeArgIndex == 0 ? offset : 0;
         for (let i = 0; i < variablesLength; ++i) {
             nextByte += VariableTypeWrites[variableTypes[i]](args[i], nextByte, buffer);
+            if (offset && offsetBeforeArgIndex == i + 1) {
+                nextByte += offset;
+            }
         }
 
         return buffer;

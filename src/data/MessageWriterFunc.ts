@@ -1,1 +1,1 @@
-export type MessageWriterFunc = (offset: number, ...args: any[]) => Buffer;
+export type MessageWriterFunc = (offset: number, offsetBeforeArgIndex: number, ...args: any[]) => Buffer;

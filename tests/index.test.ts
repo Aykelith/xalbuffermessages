@@ -8,7 +8,8 @@ import { VariableType } from '../src';
 
 describe('XALTCPMessages', () => {
     it('Create message writer and reader with all variables', () => {
-        const Offset = 10;
+        const Offset = 0;
+        const OffsetBeforeArgIndex = 1;
         const Int8Value = 1;
         const Int16Value = 31000;
         const Int32Value = 1040034;
@@ -46,6 +47,7 @@ describe('XALTCPMessages', () => {
 
         const buffer = writer(
             Offset,
+            OffsetBeforeArgIndex,
             Int8Value,
             Int16Value,
             Int16Value,
@@ -72,7 +74,7 @@ describe('XALTCPMessages', () => {
 
         expect(buffer).toBeInstanceOf(Buffer);
 
-        const result = reader(Offset, buffer);
+        const result = reader(Offset, OffsetBeforeArgIndex, buffer);
         const data = result.data;
         const nextByte = result.nextByte;
 
