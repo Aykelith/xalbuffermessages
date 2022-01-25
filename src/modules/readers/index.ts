@@ -7,6 +7,7 @@ export * from './utils/readBigUInt64LE';
 export * from './utils/readDate';
 export * from './utils/readDoubleBE';
 export * from './utils/readDoubleLE';
+export * from './utils/readFixedString';
 export * from './utils/readFloatBE';
 export * from './utils/readFloatLE';
 export * from './utils/readInt16BE';

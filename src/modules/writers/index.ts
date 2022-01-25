@@ -7,6 +7,7 @@ export * from './utils/writeBigUInt64LE';
 export * from './utils/writeDate';
 export * from './utils/writeDoubleBE';
 export * from './utils/writeDoubleLE';
+export * from './utils/writeFixedString';
 export * from './utils/writeFloatBE';
 export * from './utils/writeFloatLE';
 export * from './utils/writeInt16BE';
